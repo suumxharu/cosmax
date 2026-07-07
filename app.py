@@ -223,14 +223,14 @@ with nav1:
         if vm == 1: st.session_state.view_year -= 1; st.session_state.view_month = 12
         else:       st.session_state.view_month -= 1
         st.rerun()
-with nav2:
+with nav3:
+    st.markdown(f"<p style='text-align:center;font-weight:700;font-size:16px;color:#1E3A5F;margin:6px 0'>"
+                f"{vy}년 {vm}월</p>", unsafe_allow_html=True)
+with nav4:
     if st.button("오늘", use_container_width=True, key="today_btn"):
         st.session_state.view_year  = today.year
         st.session_state.view_month = today.month
         st.rerun()
-with nav3:
-    st.markdown(f"<p style='text-align:center;font-weight:700;font-size:16px;color:#1E3A5F;margin:6px 0'>"
-                f"{vy}년 {vm}월</p>", unsafe_allow_html=True)
 with nav5:
     if st.button("›", use_container_width=True, key="next"):
         if vm == 12: st.session_state.view_year += 1; st.session_state.view_month = 1
