@@ -99,6 +99,10 @@ st.markdown("""
 div[data-testid="stButton"] > button {
     border-radius: 8px !important;
 }
+.st-key-add_item_btn button, .st-key-add_item_btn button p {
+    color: #1E3A5F !important;
+    font-weight: 700 !important;
+}
 </style>
 """, unsafe_allow_html=True)
 
@@ -145,7 +149,7 @@ st.markdown("""
 
 col_title, col_add = st.columns([6, 1])
 with col_add:
-    if st.button("＋ 항목 추가", use_container_width=True):
+    if st.button("＋ 항목 추가", use_container_width=True, key="add_item_btn"):
         st.session_state.show_form = True
         st.session_state.editing_id = None
 
