@@ -6,7 +6,7 @@ import calendar
 
 # ── 페이지 설정 ──────────────────────────────────────────────
 st.set_page_config(
-    page_title="CertAlert – 화장품 ODM RA 일정 트래커",
+    page_title="CertAlert – 화장품 ODM 일정 트래커",
     page_icon="📅",
     layout="wide",
 )
@@ -142,7 +142,7 @@ st.markdown("""
 <div class="cert-header">
   <div>
     <p class="cert-title">📅 CertAlert</p>
-    <p class="cert-sub">화장품 ODM RA 일정 트래커</p>
+    <p class="cert-sub">화장품 ODM 일정 트래커</p>
   </div>
 </div>
 """, unsafe_allow_html=True)
@@ -339,4 +339,4 @@ else:
                 st.rerun()
 
 st.markdown("---")
-st.caption("CertAlert · 화장품 ODM RA 일정 트래커 · Powered by Streamlit")
+st.caption("CertAlert · 화장품 ODM 일정 트래커 · Powered by Streamlit")
