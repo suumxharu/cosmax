@@ -105,7 +105,7 @@ div[data-testid="stButton"] > button {
 
 # ── 세션 초기화 ──────────────────────────────────────────────
 if "items" not in st.session_state:
-    st.session_state.items = [dict(it) for it in DEFAULT_ITEMS]
+    st.session_state["items"] = [dict(it) for it in DEFAULT_ITEMS]
 if "view_year" not in st.session_state:
     st.session_state.view_year = date.today().year
 if "view_month" not in st.session_state:
@@ -151,7 +151,7 @@ with col_add:
 
 
 # ── 알림 배너 ──────────────────────────────────────────────
-items = st.session_state.items
+items = st.session_state["items"]
 urgent  = sum(1 for it in items if 0 <= dday_of(it["dueDate"]) <= 30)
 expired = sum(1 for it in items if dday_of(it["dueDate"]) < 0)
 if urgent or expired:
@@ -196,7 +196,7 @@ if st.session_state.show_form:
                 items[idx] = {**items[idx], **data}
             else:
                 items.append({"id": str(uuid.uuid4()), **data})
-            st.session_state.items = items
+            st.session_state["items"] = items
             st.session_state.show_form = False
             st.session_state.editing_id = None
             st.rerun()
@@ -207,7 +207,7 @@ if st.session_state.show_form:
             st.rerun()
 
         if deleted and editing:
-            st.session_state.items = [it for it in items if it["id"] != editing["id"]]
+            st.session_state["items"] = [it for it in items if it["id"] != editing["id"]]
             st.session_state.show_form = False
             st.session_state.editing_id = None
             st.rerun()
